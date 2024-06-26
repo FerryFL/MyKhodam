@@ -33,8 +33,8 @@ const Home = ()=> {
     const anotherName = (event)=>{
         event.preventDefault()
         setNama('')
-        setKhodam('')
         setFlag(false)
+        setUser('')
     }
 
     useEffect(() => {
