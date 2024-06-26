@@ -25,6 +25,7 @@ const Home = ()=> {
         event.preventDefault();
         if(nama){
             await fetchKhodam();
+            setUser('')
             setFlag(true)
         }
     };
