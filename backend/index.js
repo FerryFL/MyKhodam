@@ -39,16 +39,16 @@ app.use('/api/khodams', khodamRoutes);
 app.use('/api/users', userRoutes);
 
 // Connect to the database
-mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+// Connect to MongoDB
+mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        // Listen to port
-        const PORT = process.env.PORT || 5000;
-        app.listen(PORT, () => {
-            console.log('Connected to db and listening on port', PORT);
+        // Listen for requests
+        app.listen(process.env.PORT, () => {
+            console.log('Connected to db and listening on port', process.env.PORT);
         });
     })
     .catch((error) => {
-        console.error('Database connection error:', error);
+        console.log(error);
     });
 
     //testing
