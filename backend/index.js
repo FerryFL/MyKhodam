@@ -16,7 +16,7 @@ app.use(express.json());
 
 //Enable CORS for specific origins
 const corsConfig = {
-    origin: ["http://localhost:3000"],
+    origin: ["http://localhost:3000", "https://my-khodam.vercel.app/"],
     credentials: true,
     methods: ["GET", "POST", "PATCH", "DELETE"]
 };
