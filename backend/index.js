@@ -20,7 +20,7 @@ const corsConfig = {
     credentials: true,
     methods: ["GET", "POST", "PATCH", "DELETE"]
 };
-
+//
 app.use('', cors(corsConfig));
 
 app.get("/", (req, res) => {
