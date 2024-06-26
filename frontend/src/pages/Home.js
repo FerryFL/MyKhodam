@@ -52,7 +52,7 @@ const Home = ()=> {
 
     return(
         <div className="flex items-center justify-center h-screen bg-slate-700">
-            <main className="text-center border border-4 p-3 md:p-16 border-[#A2D2FF]">
+            <main className="text-center border border-4 p-8 md:p-16 border-[#A2D2FF]">
                 <div className='mb-6 max-sm:text-center'>
                     <h1 className='font-bold text-center text-xl'>
                         <span className=' text-4xl text-[#A2D2FF]'>
@@ -67,7 +67,7 @@ const Home = ()=> {
                 {khodam && (
                     <div>
                         <p className='mb-1 text-[#BDE0FE]'>Khodam {nama} hari ini adalah...</p>
-                        <p className='my-3 mb-5 text-3xl font-bold text-[#FFAFCC] animate-pulse'>✨{khodam.name}✨</p>
+                        <p className='my-3 mb-5 text-2xl md:text-3xl font-bold text-[#FFAFCC] animate-pulse'>✨{khodam.name}✨</p>
                     </div>
                     
                 )}
