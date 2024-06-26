@@ -8,7 +8,6 @@ const Home = ()=> {
     const [user, setUser] = useState('')
 
     const fetchKhodam = async()=>{
-        console.log('1')
         const response = await fetch('https://my-khodam-api.vercel.app/api/khodams/random')
         const json = await response.json()
 
@@ -25,21 +24,21 @@ const Home = ()=> {
         event.preventDefault();
         if(nama){
             await fetchKhodam();
-            setUser('')
             setFlag(true)
+            
         }
     };
 
     const anotherName = (event)=>{
         event.preventDefault()
         setNama('')
+        setKhodam('')
         setFlag(false)
         setUser('')
     }
 
     useEffect(() => {
         const fetchData = async () => {
-            console.log('ef')
             const response = await fetch('https://my-khodam-api.vercel.app/api/users')
             const json = await response.json()
     
@@ -53,7 +52,7 @@ const Home = ()=> {
 
     return(
         <div className="flex items-center justify-center h-screen bg-slate-700">
-            <main className="text-center border border-4 p-16 border-[#A2D2FF]">
+            <main className="text-center border border-4 p-3 md:p-16 border-[#A2D2FF]">
                 <div className='mb-6 max-sm:text-center'>
                     <h1 className='font-bold text-center text-xl'>
                         <span className=' text-4xl text-[#A2D2FF]'>
