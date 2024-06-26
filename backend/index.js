@@ -37,13 +37,8 @@ app.use((req, res, next) => {
 app.use('/api/khodams', khodamRoutes);
 app.use('/api/users', userRoutes);
 
-// Connect to the database
 // Connect to MongoDB
-mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true,
-    useCreateIndex: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(process.env.MONGO_URI)
     .then(() => {
         // Listen for requests
         app.listen(process.env.PORT, () => {
@@ -53,5 +48,3 @@ mongoose.connect(process.env.MONGO_URL, {
     .catch((error) => {
         console.log(error);
     });
-
-    //testing
