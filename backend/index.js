@@ -3,13 +3,13 @@ require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
 const mongoose = require('mongoose');
+const app = express();
 
 // Import routes
 const khodamRoutes = require('./routes/khodams');
 const userRoutes = require('./routes/users');
 
 // Initialize Express
-const app = express();
 
 // Use JSON for requests and responses
 app.use(express.json());
@@ -21,9 +21,8 @@ const corsConfig = {
     methods: ["GET", "POST", "PATCH", "DELETE"]
 };
 
-app.use(cors(corsConfig));
+app.use('', cors(corsConfig));
 
-// Test route to verify server is running
 app.get("/", (req, res) => {
     res.json({ hello: 'world' });
 });
