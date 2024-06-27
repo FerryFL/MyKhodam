@@ -3,14 +3,26 @@ const express = require('express')
 const router = express.Router()
 
 const {
+    getUsers,
     getRandomUser,
-    createUser
+    createUser,
+    patchUser,
+    deleteUser
 } = require('../controllers/userController')
 
-// get one random name
-router.get('/', getRandomUser)
+// get one random user
+router.get('/random', getRandomUser)
 
-// post new name
+// get users
+router.get('/', getUsers)
+
+// post new user
 router.post('/', createUser)
+
+// delete new user
+router.delete('/:id', deleteUser)
+
+// patch new user
+router.patch('/:id', patchUser)
 
 module.exports = router
