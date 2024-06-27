@@ -37,7 +37,7 @@ const createKhodam = async (req,res)=>{
         const khodam = await Khodam.create({name})
         res.status(200).json(khodam)
     }catch(error){
-        res.status(400).json({error: error.msg})
+        res.status(400).json({error: error.message})
     }
 }
 
@@ -61,7 +61,7 @@ const patchKhodam = async (req,res)=>{
     const { id } = req.params
 
     if(!mongoose.Types.ObjectId.isValid(id)){
-        return res.status(404).json({msg: 'Khodam Not Found'})
+        return res.status(404).json({error: 'Khodam Not Found'})
     }
 
     const khodam = await Khodam.findOneAndUpdate({_id:id}, {
@@ -69,7 +69,7 @@ const patchKhodam = async (req,res)=>{
     })
 
     if(!khodam){
-        return res.status(404).json({msg: 'Khodam Not Found'})
+        return res.status(404).json({error: 'Khodam Not Found'})
     }
 
     res.status(200).json(khodam)

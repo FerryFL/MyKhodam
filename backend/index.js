@@ -1,4 +1,3 @@
-// Initialize environment variables
 require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
@@ -8,6 +7,7 @@ const app = express();
 // Import routes
 const khodamRoutes = require('./routes/khodams');
 const userRoutes = require('./routes/users');
+const ideaRoutes = require('./routes/ideas')
 
 // Initialize Express
 
@@ -36,6 +36,7 @@ app.use((req, res, next) => {
 // Use the routes
 app.use('/api/khodams', khodamRoutes);
 app.use('/api/users', userRoutes);
+app.use('/api/ideas',ideaRoutes )
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)

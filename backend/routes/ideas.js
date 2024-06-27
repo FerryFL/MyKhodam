@@ -1,0 +1,28 @@
+const express = require('express')
+
+const router = express()
+
+const {
+    getIdeas,
+    getIdea,
+    createIdea,
+    patchIdea,
+    deleteIdea
+} = require('../controllers/ideaController')
+
+// Get all ideas
+router.get('/', getIdeas)
+
+// Get one idea
+router.get('/:id', getIdea)
+
+// Create new idea
+router.post('/', createIdea)
+
+// Delete one idea
+router.delete('/:id', deleteIdea)
+
+// Patch one idea
+router.patch('/:id', patchIdea)
+
+module.exports = router

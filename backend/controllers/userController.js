@@ -19,7 +19,7 @@ const createUser = async(req,res) =>{
         const users = await User.create({user})
         res.status(200).json(users)
     }catch(error){
-        return req.status(400).json({error: error.msg})
+        return req.status(400).json({error: error.message})
     }
 }
 
