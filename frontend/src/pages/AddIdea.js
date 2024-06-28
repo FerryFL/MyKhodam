@@ -6,10 +6,12 @@ const AddIdea = () => {
     const [flag, setFlag] = useState(false)
 
     const handleSubmit = () => {
+        const ideas = { contributor, idea}
+
         fetch('https://my-khodam-api.vercel.app/api/ideas',{
             method: 'POST',
             headers: { "Content-Type": "application/json"},
-            body: JSON.stringify(idea)
+            body: JSON.stringify(ideas)
         })
         setFlag(true)
     }
