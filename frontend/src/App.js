@@ -3,6 +3,7 @@ import Home from './pages/Home';
 import About from './pages/About';
 import ComingSoon from './pages/ComingSoon';
 import NotFound from './pages/NotFound';
+import AddIdea from './pages/AddIdea';
 
 function App() {
   return (
@@ -24,6 +25,10 @@ function App() {
           <Route
             path='/about'
             element={<About/>}
+          />
+          <Route
+            path='/idea'
+            element={<AddIdea/>}
           />
         </Routes>
       </BrowserRouter>

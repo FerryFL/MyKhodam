@@ -86,10 +86,10 @@ const Home = ()=> {
                                 required
                                 className="border border-2 border-[#FFAFCC] text-[#A2D2FF] bg-transparent px-4 py-2 rounded"
                             />
-                            <button type="submit" className='bg-[#A2D2FF] text-black px-4 py-2 animate-bounce  rounded'>✨ Check</button>
+                            <button type="submit" className='bg-[#A2D2FF] text-black px-4 py-2 animate-bounce  rounded'>Check✨</button>
                             <div className='flex'>
-                                <a href='/coming-soon' className='bg-[#FFAFCC] py-1 mx-1 px-3 rounded'>+</a>
-                                <a href='/about' className='bg-[#FFAFCC] py-1 mx-1 px-3 rounded'>About</a>
+                                <a href='/idea' className='bg-[#FFAFCC] py-1 mx-1 px-3 rounded'>Add➕</a>
+                                <a href='/about' className='bg-[#FFAFCC] py-1 mx-1 px-3 rounded'>About❓</a>
                                 
                             </div>
                         </div>
