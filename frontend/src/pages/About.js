@@ -6,7 +6,8 @@ const About = () => {
                     MyKhodam adalah website ril buat ngecek khodam kalian 👻
                 </p>
                 <a href="/about-more" className="text-[#A2D2FF] underline">More...</a>
-                <p className="text-sm md:text-lg font-bold mb-5 text-[#FFAFCC]">
+                
+                <p className="text-sm md:text-lg font-bold mt-3 mb-5 text-[#FFAFCC]">
                     Dibuat sama Ferry (27/06/2024)
                 </p>
                 <a href="/" className="bg-[#A2D2FF] py-1 px-3 rounded ">Kembali</a>

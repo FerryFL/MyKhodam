@@ -24,12 +24,12 @@ const getIdea = async(req,res)=>{
 const createIdea = async(req,res)=>{
     const {contributor, idea} = req.body
 
-    const ide = await Idea.create({contributor,idea})
-
-    if(!ide){
-        return res.status(404).json({error: error.message})
+    try{
+        const ide = await Idea.create({contributor,idea})
+        res.status(200).json(ide)
+    }catch(error){
+        res.status(400).json({error: error.message})
     }
-    res.status(200).json(ide)
 }
 
 const patchIdea = async(req,res) => {

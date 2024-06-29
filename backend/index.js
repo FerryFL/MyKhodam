@@ -8,6 +8,7 @@ const app = express();
 const khodamRoutes = require('./routes/khodams');
 const userRoutes = require('./routes/users');
 const ideaRoutes = require('./routes/ideas')
+const reviewRoutes = require('./routes/reviews')
 
 // Initialize Express
 
@@ -37,6 +38,7 @@ app.use((req, res, next) => {
 app.use('/api/khodams', khodamRoutes);
 app.use('/api/users', userRoutes);
 app.use('/api/ideas',ideaRoutes )
+app.use('/api/reviews', reviewRoutes)
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
