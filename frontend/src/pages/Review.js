@@ -23,7 +23,7 @@ const Review = () => {
         
         <div className="flex justify-center min-h-screen bg-slate-700">
             
-            <main className="border border-4 p-2 md:p-6 border-[#A2D2FF] my-5 max-w-xs md:max-w-3xl">
+            <main className="border border-4 p-2 md:p-6 border-[#A2D2FF] my-5 max-w-sm md:max-w-3xl">
             <h2 className="text-3xl font-semibold text-[#A2D2FF] text-center">Reviews</h2>
             <ReviewForm/>
             <div className="flex flex-wrap justify-center">

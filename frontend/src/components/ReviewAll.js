@@ -1,6 +1,6 @@
 const ReviewAll = ({review}) =>{
 
-    const limit = 12;
+    const limit = 15;
 
     const truncateText = (text) => {
         if (text.length > limit) {
