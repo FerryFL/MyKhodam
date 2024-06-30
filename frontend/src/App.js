@@ -5,6 +5,7 @@ import AboutMore from './pages/AboutMore';
 import ComingSoon from './pages/ComingSoon';
 import NotFound from './pages/NotFound';
 import AddIdea from './pages/AddIdea';
+import Review from './pages/Review';
 
 function App() {
   return (
@@ -30,6 +31,10 @@ function App() {
           <Route
             path='/idea'
             element={<AddIdea/>}
+          />
+          <Route
+            path='/review'
+            element={<Review/>}
           />
           <Route
             path='*'

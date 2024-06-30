@@ -90,7 +90,7 @@ const Home = ()=> {
                             <div className='flex'>
                                 <a href='/idea' className='bg-[#FFAFCC] py-1 mx-1 px-3 rounded'>Add➕</a>
                                 <a href='/about' className='bg-[#FFAFCC] py-1 mx-1 px-3 rounded'>About❓</a>
-                                <a href='/coming-soon' className='bg-[#FFAFCC] py-1 mx-1 px-3 rounded'>Review🔎</a>
+                                <a href='/review' className='bg-[#FFAFCC] py-1 mx-1 px-3 rounded'>Review🔎</a>
                             </div>
                         </div>
                     )}
