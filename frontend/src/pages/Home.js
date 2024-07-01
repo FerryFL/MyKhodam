@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import KhodamImage from '../img/Khodam.png';
 
 const Home = () => {
   const [khodam, setKhodam] = useState('');
@@ -57,8 +58,12 @@ const Home = () => {
   }, [flag]);
 
   return (
-    <div className="flex items-center justify-center h-screen bg-slate-700">
-      <main className="text-center border border-4 p-8 md:p-16 border-[#A2D2FF]">
+    <div className="relative flex items-center justify-center h-screen">
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat blur-sm"
+        style={{ backgroundImage: `url(${KhodamImage})`}}
+      ></div>
+      <div className="relative z-10 text-center border border-4 p-8 md:p-16 border-[#A2D2FF] bg-slate-700 bg-opacity-80 backdrop-blur-lg">
         <div className="mb-6 max-sm:text-center">
           <h1 className="font-bold text-center text-xl">
             <span className="text-4xl text-[#A2D2FF]">
@@ -110,7 +115,7 @@ const Home = () => {
             </div>
           )}
         </form>
-      </main>
+      </div>
     </div>
   );
 };
