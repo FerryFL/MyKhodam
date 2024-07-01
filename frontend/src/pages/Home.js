@@ -8,7 +8,7 @@ const Home = () => {
 
   const fetchKhodam = async () => {
     try {
-      const response = await fetch(`http://localhost:4000/api/khodams/hash?nama=${nama}`);
+      const response = await fetch(`https://my-khodam-api.vercel.app/api/khodams/hash?nama=${nama}`);
       const json = await response.json();
 
       if (response.ok) {
