@@ -8,7 +8,7 @@ const ReviewForm = () => {
     const handleSubmit = async() =>{
         const createReview = { name, review }
 
-        const response = await fetch('http://localhost:4000/api/reviews',{
+        const response = await fetch('https://my-khodam-api.vercel.app/api/reviews',{
             method: 'POST',
             headers: {'Content-Type': 'application/json'},
             body: JSON.stringify(createReview)
