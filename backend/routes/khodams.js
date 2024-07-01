@@ -5,9 +5,10 @@ const {
     getKhodams,
     getKhodam,
     getRandomKhodam,
+    getHashKhodam,
     createKhodam,
     deleteKhodam,
-    patchKhodam
+    patchKhodam,
 } = require('../controllers/khodamController')
 
 //init router
@@ -15,6 +16,8 @@ const router = express.Router()
 
 //get one random khodam
 router.get('/random', getRandomKhodam)
+
+router.get('/hash', getHashKhodam)
 
 //get all khodam
 router.get('/', getKhodams )
