@@ -38,7 +38,7 @@ const AddIdea = () => {
                         :
                         <form onSubmit={handleSubmit}>
                             <p className="text-md md:text-lg font-bold text-[#A2D2FF]">
-                                Kamu dukun? Masukin ide khodam kamu yaa disini... (harus lucu!!!)
+                                Punya ide khodam yang lucu? Masukin disini yaa...
                             </p>
                             <div className="flex my-4 mb-6 flex-col md:flex-row">
                                 <div>
