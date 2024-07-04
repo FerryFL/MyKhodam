@@ -1,10 +1,16 @@
-const User = require('../models/userModel')
+// Installation and configuration
 const mongoose = require('mongoose')
 
-const getUsers = async (req,res) => {
-    const users = await User.find({}).sort({createdAt: -1})
+// Import model
+const User = require('../models/userModel')
 
-    res.status(200).json(users)
+const getUsers = async (req,res) => {
+    try{
+        const users = await User.find({}).sort({createdAt: -1})
+        res.status(200).json(users)
+    }catch(error){
+        res.status(500).json({error: error.message})
+    }
 }
 
 const getRandomUser = async(req,res) => {
@@ -12,14 +18,14 @@ const getRandomUser = async(req,res) => {
     res.status(200).json(random)
 }
 
-const createUser = async(req,res) =>{
+const postUser = async(req,res) =>{
     const {user} = req.body
     
     try{
         const users = await User.create({user})
         res.status(200).json(users)
     }catch(error){
-        return req.status(400).json({error: error.message})
+        return res.status(400).json({error: error.message})
     }
 }
 
@@ -60,7 +66,7 @@ const deleteUser = async (req,res) =>{
 module.exports = {
     getUsers,
     getRandomUser,
-    createUser,
+    postUser,
     patchUser,
     deleteUser
 }

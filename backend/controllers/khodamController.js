@@ -1,9 +1,9 @@
-//call model
-const Khodam = require('../models/khodamModel')
-
+// Installation and configuration
 const CryptoJS = require('crypto-js');
-
 const mongoose = require('mongoose')
+
+// Import model
+const Khodam = require('../models/khodamModel')
 
 const getKhodams = async (req,res)=>{
     const khodams = await Khodam.find({}).sort({createdAt: -1})
@@ -83,7 +83,7 @@ const hashToNumber = (input) => {
     }
   };
 
-const createKhodam = async (req,res)=>{
+const postKhodam = async (req,res)=>{
     const {name} = req.body
     
     try{
@@ -134,7 +134,7 @@ module.exports = {
     getKhodam,
     getRandomKhodam,
     getHashKhodam,
-    createKhodam,
+    postKhodam,
     deleteKhodam,
     patchKhodam
 }

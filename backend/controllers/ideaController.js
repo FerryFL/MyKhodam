@@ -1,4 +1,7 @@
+// Installation and configuration
 const mongoose = require('mongoose')
+
+// Import model
 const Idea = require('../models/ideaModel')
 
 const getIdeas = async(req,res)=> {
@@ -21,7 +24,7 @@ const getIdea = async(req,res)=>{
     res.status(200).json(idea)
 }
 
-const createIdea = async(req,res)=>{
+const postIdea = async(req,res)=>{
     const {contributor, idea} = req.body
 
     try{
@@ -65,7 +68,7 @@ const deleteIdea = async(req,res) => {
 module.exports = {
     getIdeas,
     getIdea,
-    createIdea,
+    postIdea,
     patchIdea,
     deleteIdea
 }

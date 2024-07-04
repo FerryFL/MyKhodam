@@ -1,38 +1,37 @@
+// Installation and configuration
 const express = require('express')
+const router = express.Router()
 
-//import all methods from controller
+// Import methods from controller
 const {
     getKhodams,
     getKhodam,
     getRandomKhodam,
     getHashKhodam,
-    createKhodam,
+    postKhodam,
     deleteKhodam,
     patchKhodam,
 } = require('../controllers/khodamController')
 
-//init router
-const router = express.Router()
-
-//get one random khodam
+// Get one random khodam
 router.get('/random', getRandomKhodam)
 
+// Get one hashed khodam
 router.get('/hash', getHashKhodam)
 
-//get all khodam
+// Get all khodams
 router.get('/', getKhodams )
 
-//get one khodam
+// Get one khodam
 router.get('/:id', getKhodam)
 
-//create new khodam
-router.post('/', createKhodam)
+// Create new khodam
+router.post('/', postKhodam)
 
-//delete khodam
+// Delete khodam
 router.delete('/:id', deleteKhodam)
 
-//patch khodam
+// Patch khodam
 router.patch('/:id', patchKhodam)
 
-//export the routes
 module.exports = router

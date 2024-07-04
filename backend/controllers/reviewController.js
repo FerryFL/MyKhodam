@@ -1,9 +1,11 @@
+// Installation and configuration
 const mongoose = require('mongoose')
 
+// Import model
 const Review = require('../models/reviewModel')
 
 const getReviews = async(req,res) => {
-    const reviews = await Review.find({}).sort({createdAt:-1})
+    const reviews = await Review.find({}).sort({createdAt: -1})
     res.status(200).json(reviews)
 }
 

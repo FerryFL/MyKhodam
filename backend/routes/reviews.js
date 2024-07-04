@@ -1,6 +1,8 @@
+// Installation and configuration
 const express = require('express')
 const router = express.Router()
 
+// Import methods from controller
 const {
     getReview,
     getReviews,

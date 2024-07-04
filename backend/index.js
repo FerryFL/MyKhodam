@@ -1,3 +1,4 @@
+// Installation and configuration
 require('dotenv').config();
 const cors = require('cors');
 const express = require('express');
@@ -7,21 +8,18 @@ const app = express();
 // Import routes
 const khodamRoutes = require('./routes/khodams');
 const userRoutes = require('./routes/users');
-const ideaRoutes = require('./routes/ideas')
-const reviewRoutes = require('./routes/reviews')
-
-// Initialize Express
+const ideaRoutes = require('./routes/ideas');
+const reviewRoutes = require('./routes/reviews');
 
 // Use JSON for requests and responses
 app.use(express.json());
 
-//Enable CORS for specific origins
+//Enable CORS for publish inquiries
 const corsConfig = {
     origin: ["http://localhost:3000", "https://my-khodam.vercel.app/"],
     credentials: true,
     methods: ["GET", "POST", "PATCH", "DELETE"]
 };
-//
 app.use('', cors(corsConfig));
 
 app.get("/", (req, res) => {
@@ -37,17 +35,16 @@ app.use((req, res, next) => {
 // Use the routes
 app.use('/api/khodams', khodamRoutes);
 app.use('/api/users', userRoutes);
-app.use('/api/ideas',ideaRoutes )
-app.use('/api/reviews', reviewRoutes)
+app.use('/api/ideas',ideaRoutes );
+app.use('/api/reviews', reviewRoutes);
 
 // Connect to MongoDB
 mongoose.connect(process.env.MONGO_URI)
     .then(() => {
-        // Listen for requestssasdasd
-        // asdasd
+        // Listen for requests
         app.listen(process.env.PORT, () => {
             console.log('Connected to db and listening on port', process.env.PORT);
-        });
+        })
     })
     .catch((error) => {
         console.log(error);

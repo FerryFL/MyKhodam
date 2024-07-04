@@ -1,28 +1,29 @@
+// Installation and configuration
 const express = require('express')
-
 const router = express.Router()
 
+// Import methods from controller
 const {
     getUsers,
     getRandomUser,
-    createUser,
+    postUser,
     patchUser,
     deleteUser
 } = require('../controllers/userController')
 
-// get one random user
+// Get one random user
 router.get('/random', getRandomUser)
 
-// get users
+// Get all users
 router.get('/', getUsers)
 
-// post new user
-router.post('/', createUser)
+// Create new user
+router.post('/', postUser)
 
-// delete new user
+// Delete new user
 router.delete('/:id', deleteUser)
 
-// patch new user
+// Patch new user
 router.patch('/:id', patchUser)
 
 module.exports = router

@@ -1,11 +1,12 @@
+// Installation and configuration
 const express = require('express')
-
 const router = express()
 
+// Import methods from controller
 const {
     getIdeas,
     getIdea,
-    createIdea,
+    postIdea,
     patchIdea,
     deleteIdea
 } = require('../controllers/ideaController')
@@ -17,7 +18,7 @@ router.get('/', getIdeas)
 router.get('/:id', getIdea)
 
 // Create new idea
-router.post('/', createIdea)
+router.post('/', postIdea)
 
 // Delete one idea
 router.delete('/:id', deleteIdea)
