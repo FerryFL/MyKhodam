@@ -10,13 +10,13 @@ const Home = () => {
 
   const fetchKhodam = async () => {
     try {
-      const response = await axios.get(`https://my-khodam-api.vercel.app/api/khodams/hash?nama=${nama}`);
-      if (response.status === 200) {
-        setKhodam(response.data);
-      } else {
-        console.log('Request failed with status:', response.status);
+      const response = await fetch(`https://my-khodam-api.vercel.app/api/khodams/hash?nama=${nama}`)
+      const json = await response.json();
+
+      if(response.ok) {
+        setKhodam(json); 
       }
-    } catch (error) {
+    } catch(error) {
       console.error('Error fetching Khodam:', error);
     }
   };
