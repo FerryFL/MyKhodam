@@ -55,14 +55,14 @@ const hashToNumber = (input) => {
 
 // Get one hashed khodam
 const getHashKhodam = async(req, res) => {
-    const { name } = req.query
+    const { nama } = req.query
 
     try {
 
-        const today = new Date().getDate()
+        const today = new Date()
         const day = today.getDate()
 
-        const hashNumber = hashToNumber(name)
+        const hashNumber = hashToNumber(nama)
         const multipliedNumber = hashNumber * day
 
         const totalCount = await Khodam.countDocuments()
