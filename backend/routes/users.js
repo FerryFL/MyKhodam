@@ -5,6 +5,7 @@ const router = express.Router()
 // Import methods from controller
 const {
     getUsers,
+    getUser,
     getRandomUser,
     postUser,
     patchUser,
@@ -16,6 +17,9 @@ router.get('/random', getRandomUser)
 
 // Get all users
 router.get('/', getUsers)
+
+// Get one user
+router.get('/:id', getUser)
 
 // Create new user
 router.post('/', postUser)

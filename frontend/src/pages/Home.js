@@ -13,7 +13,7 @@ const Home = () => {
       const json = await response.json();
 
       if (response.ok) {
-        setKhodam(json); // Karena respons langsung berisi objek khodam, tidak perlu lagi json[0]
+        setKhodam(json); 
       }
     } catch (error) {
       console.error('Error fetching Khodam:', error);

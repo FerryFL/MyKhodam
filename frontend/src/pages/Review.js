@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react"
+import axios from 'axios'
 import ReviewAll from '../components/ReviewAll'
 import ReviewForm from "../components/ReviewForm"
 import KhodamImage from '../img/Khodam.png';
@@ -9,11 +10,13 @@ const Review = () => {
 
     useEffect(()=>{
         const fetchReview = async()=> {
-            const response = await fetch('https://my-khodam-api.vercel.app/api/reviews')
-            const json = await response.json()
-
-            if(response.ok){
-                setReview(json)
+            try{
+                const response = await axios.get('https://my-khodam-api.vercel.app/api/reviews')
+                if(response.status === 200){
+                    setReview(response.data)
+                }
+            }catch(error){
+                console.log('Error: ',error)
             }
         }
 
