@@ -1,19 +1,20 @@
 import { useState } from "react"
 import KhodamImage from '../img/Khodam.png';
+import axios from "axios";
 
 const AddIdea = () => {
     const [contributor, setContributor] = useState('')
     const [idea, setIdea] = useState('')
     const [flag, setFlag] = useState(false)
 
-    const handleSubmit = () => {
+    const handleSubmit = async () => {
         const ideas = { contributor, idea}
 
-        fetch('https://my-khodam-api.vercel.app/api/ideas',{
-            method: 'POST',
-            headers: { "Content-Type": "application/json"},
-            body: JSON.stringify(ideas)
-        })
+        try{
+            await axios.post('https://my-khodam-api.vercel.app/api/ideas', ideas)
+        }catch(error){
+            console.log('Error: ',error)
+        }
         setFlag(true)
     }
 

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import KhodamImage from '../img/Khodam.png';
+import axios from 'axios'
 
 const Home = () => {
   const [khodam, setKhodam] = useState('');
@@ -8,15 +9,14 @@ const Home = () => {
   const [user, setUser] = useState('');
 
   const fetchKhodam = async () => {
-    try {
-      const response = await fetch(`https://my-khodam-api.vercel.app/api/khodams/hash?nama=${nama}`);
-      const json = await response.json();
-
-      if (response.ok) {
-        setKhodam(json); 
+    try{
+      const response = await axios.get(`https://my-khodam-api.vercel.app/api/khodams/hash?nama=${nama}`)
+      if(response.status === 200){
+        setKhodam(response.data)
       }
-    } catch (error) {
-      console.error('Error fetching Khodam:', error);
+
+    }catch(error){
+      console.log('Error: ',error)
     }
   };
 
@@ -42,15 +42,13 @@ const Home = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      try {
-        const response = await fetch('https://my-khodam-api.vercel.app/api/users/random');
-        const json = await response.json();
-
-        if (response.ok) {
-          setUser(json[0].user);
+      try{
+        const response = await axios.get('https://my-khodam-api.vercel.app/api/users/random')
+        if(response.status === 200){
+          setUser(response.data[0].user)
         }
-      } catch (error) {
-        console.error('Error fetching user:', error);
+      }catch(error){
+        console.log('Error: ', error)
       }
     };
 

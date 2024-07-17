@@ -9,7 +9,6 @@ const Login = () => {
     e.preventDefault();
     try {
       await auth.signInWithEmailAndPassword(email, password);
-      // Handle successful login (e.g., redirect to dashboard)
     } catch (error) {
       console.error("Error logging in: ", error);
     }
