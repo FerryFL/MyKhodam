@@ -55,7 +55,7 @@ const hashToNumber = (input) => {
 
 // Get one hashed khodam
 const getHashKhodam = async(req, res) => {
-    const { nama } = req.query
+    const { name } = req.query
 
     try {
 

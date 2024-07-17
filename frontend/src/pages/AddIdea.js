@@ -8,10 +8,14 @@ const AddIdea = () => {
     const [flag, setFlag] = useState(false)
 
     const handleSubmit = async () => {
-        const ideas = { contributor, idea}
+        const createIdea = { contributor, idea}
 
         try{
-            await axios.post('https://my-khodam-api.vercel.app/api/ideas', ideas)
+            const response = await axios.post('https://my-khodam-api.vercel.app/api/ideas', createIdea)
+            if(response.status === 200){
+                alert("Ideas Added!")
+                window.location.reload()
+            }
         }catch(error){
             console.log('Error: ',error)
         }

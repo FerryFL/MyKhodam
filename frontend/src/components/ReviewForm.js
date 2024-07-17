@@ -1,3 +1,4 @@
+import axios from "axios"
 import { useState } from "react"
 
 const ReviewForm = () => {
@@ -9,21 +10,18 @@ const ReviewForm = () => {
         e.preventDefault()
 
         const createReview = { name, review }
-
-        const response = await fetch('https://my-khodam-api.vercel.app/api/reviews',{
-            method: 'POST',
-            headers: {'Content-Type': 'application/json'},
-            body: JSON.stringify(createReview)
-        })
-
-        const json = await response.json()
-
-        if(!response.ok){
-            setError(json.error)
-        }else{
-            alert('Review Added!')
-            window.location.reload()
-        }
+        
+        try{
+            const response = await axios.post('https://my-khodam-api.vercel.app/api/reviews', createReview)
+            if(response.status === 200){
+                alert("Review Added!")
+                window.location.reload()
+            }else{
+                setError("Failed")
+            }
+        }catch(error){
+            console.log('Error: ', error)
+        }   
     }
 
     return(
