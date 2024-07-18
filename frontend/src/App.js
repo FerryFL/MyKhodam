@@ -7,8 +7,6 @@ import ComingSoon from './pages/ComingSoon';
 import NotFound from './pages/NotFound';
 import AddIdea from './pages/AddIdea';
 import Review from './pages/Review';
-import Login from './pages/Login';
-import Register from './pages/Register';
 import { auth } from './firebase';
 
 function App() {
@@ -30,8 +28,6 @@ function App() {
           <Route path='/about' element={<About />} />
           <Route path='/idea' element={<AddIdea />} />
           <Route path='/review' element={<Review />} />
-          <Route path='/login' element={<Login />} />
-          <Route path='/register' element={<Register />} />
           <Route path='*' element={<NotFound />} />
         </Routes>
       </BrowserRouter>
