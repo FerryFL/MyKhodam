@@ -66,8 +66,11 @@ const getHashKhodam = async(req, res) => {
         const today = new Date()
         const day = today.getDate()
 
-        const hashNumber = hashToNumber(name)
-        const multipliedNumber = hashNumber * day
+        const hashNumber = hashToNumber(name);
+        console.log(`Hash Number for ${name}:`, hashNumber);
+
+        const multipliedNumber = hashNumber * day;
+        console.log(`Multiplied Number for ${name}:`, multipliedNumber);
 
         const totalCount = await Khodam.countDocuments()
 
