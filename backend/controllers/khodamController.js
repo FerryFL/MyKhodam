@@ -55,10 +55,10 @@ const hashToNumber = (input) => {
 
 // Get one hashed khodam
 const getHashKhodam = async(req, res) => {
-    const { nama } = req.query
+    const { name } = req.query
 
-    if (!nama) {
-        return res.status(400).json({ error: "Nama query parameter is required" });
+    if (!name) {
+        return res.status(400).json({ error: "Name query parameter is required" });
     }
 
     try {
@@ -66,7 +66,7 @@ const getHashKhodam = async(req, res) => {
         const today = new Date()
         const day = today.getDate()
 
-        const hashNumber = hashToNumber(nama)
+        const hashNumber = hashToNumber(name)
         const multipliedNumber = hashNumber * day
 
         const totalCount = await Khodam.countDocuments()

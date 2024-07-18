@@ -4,13 +4,13 @@ import axios from 'axios'
 
 const Home = () => {
   const [khodam, setKhodam] = useState('');
-  const [nama, setNama] = useState('');
+  const [name, setName] = useState('');
   const [flag, setFlag] = useState(false);
   const [user, setUser] = useState('');
 
   const fetchKhodam = async () => {
     try {
-      const response = await fetch(`https://my-khodam-api.vercel.app/api/khodams/hash?nama=${nama}`)
+      const response = await fetch(`https://my-khodam-api.vercel.app/api/khodams/hash?name=${name}`)
       const json = await response.json();
 
       if(response.ok) {
@@ -24,12 +24,12 @@ const Home = () => {
   };
 
   const handleChange = (event) => {
-    setNama(event.target.value);
+    setName(event.target.value);
   };
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    if (nama) {
+    if (name) {
       await fetchKhodam();
       setFlag(true);
     }
@@ -37,7 +37,7 @@ const Home = () => {
 
   const anotherName = (event) => {
     event.preventDefault();
-    setNama('');
+    setName('');
     setKhodam('');
     setFlag(false);
     setUser('');
@@ -78,8 +78,8 @@ const Home = () => {
 
         {khodam && (
           <div>
-            <p className="mb-1 text-[#BDE0FE]">Khodam {nama} hari ini adalah...</p>
-            <p className="my-3 mb-5 text-2xl md:text-3xl font-bold text-[#FFAFCC] animate-pulse">✨{khodam.nama}✨</p>
+            <p className="mb-1 text-[#BDE0FE]">Khodam {name} hari ini adalah...</p>
+            <p className="my-3 mb-5 text-2xl md:text-3xl font-bold text-[#FFAFCC] animate-pulse">✨{khodam.name}✨</p>
           </div>
         )}
 
@@ -94,7 +94,7 @@ const Home = () => {
               <input
                 type="text"
                 placeholder={user}
-                value={nama}
+                value={name}
                 onChange={handleChange}
                 required
                 className="border border-2 border-[#FFAFCC] text-[#A2D2FF] bg-transparent px-4 py-2 rounded"
