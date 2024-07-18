@@ -46,12 +46,18 @@ const getRandomKhodam = async (req,res) => {
     }
 }
 
-// input to hashed number
+// Generate a random salt
+const generateSalt = () => {
+    return CryptoJS.lib.WordArray.random(16).toString(CryptoJS.enc.Hex);
+};
+
+// Input to hashed number with salt
 const hashToNumber = (input) => {
-    const hash = CryptoJS.SHA256(input).toString()
-    const hashNumber = parseInt(hash, 16)
-    return hashNumber
-}
+    const salt = generateSalt();
+    const hash = CryptoJS.SHA512(input + salt).toString(CryptoJS.enc.Hex);
+    const hashNumber = parseInt(hash, 16);
+    return hashNumber;
+};
 
 // Get one hashed khodam
 const getHashKhodam = async(req, res) => {

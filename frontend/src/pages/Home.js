@@ -11,9 +11,9 @@ const Home = () => {
   const fetchKhodam = async () => {
 
     try{
-      const response = await fetch(`https://my-khodam-api.vercel.app/api/khodams/hash?name=${name}`)
+      const response = await axios.get(`https://my-khodam-api.vercel.app/api/khodams/hash?name=${name}`)
       if(response.status === 200){
-        setKhodam(response.data)
+        setKhodam(response.data.name)
       }else{
         console.error('Error fetching Khodam:', response.data);
       }
@@ -50,7 +50,7 @@ const Home = () => {
           setUser(response.data[0].user)
         }
       }catch(error){
-        console.log('Error: ', error)
+        console.error('Error: ', error)
       }
     };
 
@@ -78,7 +78,7 @@ const Home = () => {
         {khodam && (
           <div>
             <p className="mb-1 text-[#BDE0FE]">Khodam {name} hari ini adalah...</p>
-            <p className="my-3 mb-5 text-2xl md:text-3xl font-bold text-[#FFAFCC] animate-pulse">✨{khodam.name}✨</p>
+            <p className="my-3 mb-5 text-2xl md:text-3xl font-bold text-[#FFAFCC] animate-pulse">✨{khodam}✨</p>
           </div>
         )}
 
