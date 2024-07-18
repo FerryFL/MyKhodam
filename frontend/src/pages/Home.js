@@ -9,7 +9,6 @@ const Home = () => {
   const [user, setUser] = useState('');
 
   const fetchKhodam = async () => {
-
     try{
       const response = await axios.get(`https://my-khodam-api.vercel.app/api/khodams/hash?name=${name}`)
       if(response.status === 200){

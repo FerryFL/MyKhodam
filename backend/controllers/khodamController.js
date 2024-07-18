@@ -49,7 +49,8 @@ const getRandomKhodam = async (req,res) => {
 // input to hashed number
 const hashToNumber = (input) => {
     const hash = CryptoJS.SHA256(input).toString()
-    const hashNumber = parseInt(hash, 16)
+    const shortenedHash = hash.slice(0, 4)
+    const hashNumber = parseInt(shortenedHash, 16)
     return hashNumber
 }
 
@@ -62,15 +63,11 @@ const getHashKhodam = async(req, res) => {
     }
 
     try {
-
         const today = new Date()
         const day = today.getDate()
 
         const hashNumber = hashToNumber(name);
-        console.log(`Hash Number for ${name}:`, hashNumber);
-
         const multipliedNumber = hashNumber * day;
-        console.log(`Multiplied Number for ${name}:`, multipliedNumber);
 
         const totalCount = await Khodam.countDocuments()
 
