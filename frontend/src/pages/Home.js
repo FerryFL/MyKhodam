@@ -7,17 +7,13 @@ const Home = () => {
   const [name, setName] = useState('');
   const [flag, setFlag] = useState(false);
   const [user, setUser] = useState('');
-  const [multipliedNumber, setMultipliedNumber] = useState(null);
-  const [totalCount, setTotalCount] = useState(null);
 
   const fetchKhodam = async () => {
 
     try{
       const response = await fetch(`https://my-khodam-api.vercel.app/api/khodams/hash?name=${name}`)
       if(response.status === 200){
-        setKhodam(response.data.khodam)
-        setMultipliedNumber(response.data.multipliedNumber);
-        setTotalCount(response.data.totalCount);
+        setKhodam(response.data)
       }else{
         console.error('Error fetching Khodam:', response.data);
       }
@@ -70,8 +66,6 @@ const Home = () => {
       <div className="relative z-10 text-center border border-4 p-8 md:p-16 border-[#A2D2FF] bg-slate-700 bg-opacity-80 backdrop-blur-lg">
         <div className="mb-6 max-sm:text-center">
           <h1 className="font-bold text-center text-xl">
-            <span>{multipliedNumber}</span>
-            <span>{totalCount}</span>
             <span className="text-4xl text-[#A2D2FF]">
               Cek <span className="text-[#FFAFCC]">Khodam</span>
             </span>
@@ -84,7 +78,7 @@ const Home = () => {
         {khodam && (
           <div>
             <p className="mb-1 text-[#BDE0FE]">Khodam {name} hari ini adalah...</p>
-            <p className="my-3 mb-5 text-2xl md:text-3xl font-bold text-[#FFAFCC] animate-pulse">✨{khodam}✨</p>
+            <p className="my-3 mb-5 text-2xl md:text-3xl font-bold text-[#FFAFCC] animate-pulse">✨{khodam.name}✨</p>
           </div>
         )}
 
