@@ -18,7 +18,7 @@ const AddIdea = () => {
                 window.location.reload()
             }
         }catch(error){
-            console.log('Error: ',error)
+            console.log("Error: ",error)
         }
         setFlag(true)
     }

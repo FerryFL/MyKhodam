@@ -9,19 +9,15 @@ const Home = () => {
   const [user, setUser] = useState('');
 
   const fetchKhodam = async () => {
-    try {
+    try{
       const response = await fetch(`https://my-khodam-api.vercel.app/api/khodams/hash?name=${name}`)
-      const json = await response.json();
-
-      if(response.ok) {
-        setKhodam(json); 
-      }else {
-        console.error('Error fetching Khodam:', json);
+      if(response.status === 200){
+        setKhodam(response.data)
+      }
+    }catch(error){
+      console.log("Error: ", error)
     }
-    } catch(error) {
-      console.error('Error fetching Khodam:', error);
-    }
-  };
+  }
 
   const handleChange = (event) => {
     setName(event.target.value);
