@@ -50,13 +50,6 @@ const getRandomKhodam = async (req,res) => {
 const hashToNumber = (input) => {
     const hash = CryptoJS.SHA256(input).toString()
     const hashNumber = parseInt(hash, 16)
-
-    if (hashNumber === 0) {
-        hashNumber += 5 
-    }else if (hashNumber === 1){
-        hashNumber += 8
-    }
-
     return hashNumber
 }
 
@@ -82,7 +75,8 @@ const getHashKhodam = async(req, res) => {
             return res.status(404).json({ error: "No Khodam Available" })
         }
 
-        const finalIndex = multipliedNumber % totalCount
+        const len = name.length
+        const finalIndex = (multipliedNumber+len) % totalCount
         const khodam = await Khodam.findOne().skip(finalIndex)
 
         if (!khodam) {
