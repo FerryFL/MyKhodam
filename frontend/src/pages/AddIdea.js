@@ -7,7 +7,8 @@ const AddIdea = () => {
     const [idea, setIdea] = useState('')
     const [flag, setFlag] = useState(false)
 
-    const handleSubmit = async () => {
+    const handleSubmit = async (e) => {
+        e.preventDefault()
         const createIdea = { contributor, idea}
 
         try{

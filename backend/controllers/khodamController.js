@@ -57,6 +57,10 @@ const hashToNumber = (input) => {
 const getHashKhodam = async(req, res) => {
     const { nama } = req.query
 
+    if (!nama) {
+        return res.status(400).json({ error: "Nama query parameter is required" });
+    }
+
     try {
 
         const today = new Date()

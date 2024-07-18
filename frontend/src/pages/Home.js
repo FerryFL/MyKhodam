@@ -15,7 +15,9 @@ const Home = () => {
 
       if(response.ok) {
         setKhodam(json); 
-      }
+      }else {
+        console.error('Error fetching Khodam:', json);
+    }
     } catch(error) {
       console.error('Error fetching Khodam:', error);
     }
